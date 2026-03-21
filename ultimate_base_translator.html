@@ -1,0 +1,166 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Base Translator</title>
+</head>
+
+<body style="background-color: #00ffff;" id="corpo" >
+
+    <select name="tema" id="slct_tema" oninput="tema()">
+        <option value="padrao">SPTecher's Machine</option>
+        <option value="claro">Tema Claro</option>
+        <option value="escuro">Tema Escuro</option>
+        <option value="hacker">Modo Hacker</option>
+    </select>
+    
+    <audio controls autoplay muted loop id="musica">
+        <source src="assets/Samuels_Theme-Dumativa.mp3" type="audio/mp3">
+    </audio>
+    
+    <center>
+        <h1>Ultimate Base Translator</h1>
+        <div style="padding: 50px; width: fit-content; border-radius: 10px;" id="div_caixa">
+            <h3>Digite um número e selecione a base: </h3>
+            <input id="demo1" type="text" placeholder="Ex: 42"><select name="base" id="slct_base">
+                <option value=""></option>
+                <option value="binario">Base 2</option>
+                <option value="octal">Base 8</option>
+                <option value="decimal">Base 10</option>
+                <option value="hexadecimal">Base 16</option>
+            </select>
+            <br><br>
+
+            <button onclick="converter()">Converter</button>
+            <div id="div_tradutor"></div>
+        </div>
+    </center>
+
+    <script>
+        let regraBin = new RegExp("[2-z]")
+        let regraOct = new RegExp("[8-z]")
+        let regraDec = new RegExp("[A-z]")
+        let regraHex = new RegExp("[G-Z]" || "[g-z]")
+
+        function converter() {
+            let numero
+            let base = slct_base.value
+            let teste
+
+
+            if (base == ''){
+                div_tradutor.innerHTML = 'Selecione a base.'
+            }
+            else if (base == 'binario'){
+                teste = regraBin.test(demo1.value)
+                console.log(teste)
+
+                if (teste == false) {
+                    numero = parseInt(demo1.value, 2)
+
+                div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                        <p>Octal:
+                                        ${numero.toString(8)}
+                                        </p>
+                                        <p>Decimal:
+                                        ${numero.toString(10)}
+                                        </p>
+                                        <p>Hexadecimal:
+                                        ${(numero.toString(16)).toUpperCase()}
+                                        </p>`
+                }
+                else{
+                    div_tradutor.innerHTML = 'A base binária só aceita 0s e 1s.<br>Por favor, digite um número válido.'
+                }
+                
+            } 
+            else if (base == 'octal'){
+                teste = regraOct.test(demo1.value)
+
+                if (teste == false){
+                numero = parseInt(demo1.value, 8)
+
+                div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                        <p>Binário:
+                                        ${numero.toString(2)}
+                                        </p>
+                                        <p>Decimal:
+                                        ${numero.toString(10)}
+                                        </p>
+                                        <p>Hexadecimal:
+                                        ${(numero.toString(16)).toUpperCase()}
+                                        </p>`
+                } 
+                else {
+                    div_tradutor.innerHTML = 'A base octal só aceita digitos entre 0 e 7.<br>Por favor, digite um número válido.'
+                }                        
+            } 
+            else if (base == 'decimal'){
+                teste = regraDec.test(demo1.value)
+
+                if (teste == false){
+                numero = parseInt(demo1.value, 10)
+
+                div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                        <p>Binário:
+                                        ${numero.toString(2)}
+                                        </p>
+                                        <p>Octal:
+                                        ${numero.toString(8)}
+                                        </p>
+                                        <p>Hexadecimal:
+                                        ${(numero.toString(16)).toUpperCase()}
+                                        </p>`
+                }
+                else{
+                    div_tradutor.innerHTML = 'A base decimal só aceita digitos entre 0 e 9.<br>Por favor, digite um número válido.'
+                }
+            } 
+            else if (base == 'hexadecimal'){
+                teste = regraHex.test(demo1.value)
+
+                if (teste == false){
+                numero = parseInt(demo1.value, 16)
+
+                div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                        <p>Binário:
+                                        ${numero.toString(2)}
+                                        </p>
+                                        <p>Octal:
+                                        ${numero.toString(8)}
+                                        </p>
+                                        <p>Decimal:
+                                        ${numero.toString(10)}
+                                        </p>`
+                }
+                else{
+                    div_tradutor.innerHTML = 'A base hexadecimal só aceita digitoe entre 0 e 9, e entre A e F.<br>Por favor, digite um número válido.'
+                }
+            }
+        }
+        function tema(){
+            let tema = slct_tema.value
+
+            if (tema == 'padrao'){
+                corpo.style.backgroundColor = '#00ffff'
+                div_caixa.style.backgroundColor = ''
+                div_caixa.style.color = 'black'
+                musica.src = ''
+            }
+            else if (tema == 'hacker'){
+                console.log(musica.autoplay)
+
+                musica.autoplay = true
+                console.log(musica.muted)
+                console.log(musica.src)
+            }
+        }
+    </script>
+</body>
+
+</html>
