@@ -19,7 +19,7 @@
         <option value="hacker">Modo Hacker</option>
     </select>
     
-    <audio controls autoplay muted loop id="musica">
+    <audio loop id="musica">
         <source src="assets/Samuels_Theme-Dumativa.mp3" type="audio/mp3">
     </audio>
     
@@ -153,11 +153,8 @@
                 musica.src = ''
             }
             else if (tema == 'hacker'){
-                console.log(musica.autoplay)
-
-                musica.autoplay = true
-                console.log(musica.muted)
-                console.log(musica.src)
+                musica.src = 'assets/Samuels_Theme-Dumativa.mp3'
+                musica.play()
             }
         }
     </script>
