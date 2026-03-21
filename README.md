@@ -1,0 +1,1 @@
+Esse projeto foi feito puramente para fins educacionais com o codigo fornecido pelo professor e adaptado por mim para adicionar temas e conversão de outras bases, nenhum asset utilizado pertence a mim. Os artistas originais estão creditados no nome dos arquivos.
