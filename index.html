@@ -50,94 +50,98 @@
             let base = slct_base.value
             let teste
 
-
-            if (base == ''){
-                div_tradutor.innerHTML = 'Selecione a base.'
+            if (demo1.value == ''){
+                div_tradutor.innerHTML = 'Digite um número.'
             }
-            else if (base == 'binario'){
-                teste = regraBin.test(demo1.value)
-                console.log(teste)
-
-                if (teste == false) {
-                    numero = parseInt(demo1.value, 2)
-
-                div_tradutor.innerHTML = `<h3>Resultados:</h3>
-                                        <p>Octal:
-                                        ${numero.toString(8)}
-                                        </p>
-                                        <p>Decimal:
-                                        ${numero.toString(10)}
-                                        </p>
-                                        <p>Hexadecimal:
-                                        ${(numero.toString(16)).toUpperCase()}
-                                        </p>`
+            else{
+                if (base == ''){
+                    div_tradutor.innerHTML = 'Selecione a base.'
                 }
-                else{
-                    div_tradutor.innerHTML = 'A base binária só aceita 0s e 1s.<br>Por favor, digite um número válido.'
-                }
-                
-            } 
-            else if (base == 'octal'){
-                teste = regraOct.test(demo1.value)
+                else if (base == 'binario'){
+                    teste = regraBin.test(demo1.value)
+                    console.log(teste)
 
-                if (teste == false){
-                numero = parseInt(demo1.value, 8)
+                    if (teste == false) {
+                        numero = parseInt(demo1.value, 2)
 
-                div_tradutor.innerHTML = `<h3>Resultados:</h3>
-                                        <p>Binário:
-                                        ${numero.toString(2)}
-                                        </p>
-                                        <p>Decimal:
-                                        ${numero.toString(10)}
-                                        </p>
-                                        <p>Hexadecimal:
-                                        ${(numero.toString(16)).toUpperCase()}
-                                        </p>`
+                    div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                            <p>Octal:
+                                            ${numero.toString(8)}
+                                            </p>
+                                            <p>Decimal:
+                                            ${numero.toString(10)}
+                                            </p>
+                                            <p>Hexadecimal:
+                                            ${(numero.toString(16)).toUpperCase()}
+                                            </p>`
+                    }
+                    else{
+                        div_tradutor.innerHTML = 'A base binária só aceita 0s e 1s.<br>Por favor, digite um número válido.'
+                    }
+                    
                 } 
-                else {
-                    div_tradutor.innerHTML = 'A base octal só aceita digitos entre 0 e 7.<br>Por favor, digite um número válido.'
-                }                        
-            } 
-            else if (base == 'decimal'){
-                teste = regraDec.test(demo1.value)
+                else if (base == 'octal'){
+                    teste = regraOct.test(demo1.value)
 
-                if (teste == false){
-                numero = parseInt(demo1.value, 10)
+                    if (teste == false){
+                    numero = parseInt(demo1.value, 8)
 
-                div_tradutor.innerHTML = `<h3>Resultados:</h3>
-                                        <p>Binário:
-                                        ${numero.toString(2)}
-                                        </p>
-                                        <p>Octal:
-                                        ${numero.toString(8)}
-                                        </p>
-                                        <p>Hexadecimal:
-                                        ${(numero.toString(16)).toUpperCase()}
-                                        </p>`
-                }
-                else{
-                    div_tradutor.innerHTML = 'A base decimal só aceita digitos entre 0 e 9.<br>Por favor, digite um número válido.'
-                }
-            } 
-            else if (base == 'hexadecimal'){
-                teste = regraHex.test(demo1.value)
+                    div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                            <p>Binário:
+                                            ${numero.toString(2)}
+                                            </p>
+                                            <p>Decimal:
+                                            ${numero.toString(10)}
+                                            </p>
+                                            <p>Hexadecimal:
+                                            ${(numero.toString(16)).toUpperCase()}
+                                            </p>`
+                    } 
+                    else {
+                        div_tradutor.innerHTML = 'A base octal só aceita digitos entre 0 e 7.<br>Por favor, digite um número válido.'
+                    }                        
+                } 
+                else if (base == 'decimal'){
+                    teste = regraDec.test(demo1.value)
 
-                if (teste == false){
-                numero = parseInt(demo1.value, 16)
+                    if (teste == false){
+                    numero = parseInt(demo1.value, 10)
 
-                div_tradutor.innerHTML = `<h3>Resultados:</h3>
-                                        <p>Binário:
-                                        ${numero.toString(2)}
-                                        </p>
-                                        <p>Octal:
-                                        ${numero.toString(8)}
-                                        </p>
-                                        <p>Decimal:
-                                        ${numero.toString(10)}
-                                        </p>`
-                }
-                else{
-                    div_tradutor.innerHTML = 'A base hexadecimal só aceita digito e entre 0 e 9, e entre A e F.<br>Por favor, digite um número válido.'
+                    div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                            <p>Binário:
+                                            ${numero.toString(2)}
+                                            </p>
+                                            <p>Octal:
+                                            ${numero.toString(8)}
+                                            </p>
+                                            <p>Hexadecimal:
+                                            ${(numero.toString(16)).toUpperCase()}
+                                            </p>`
+                    }
+                    else{
+                        div_tradutor.innerHTML = 'A base decimal só aceita digitos entre 0 e 9.<br>Por favor, digite um número válido.'
+                    }
+                } 
+                else if (base == 'hexadecimal'){
+                    teste = regraHex.test(demo1.value)
+
+                    if (teste == false){
+                    numero = parseInt(demo1.value, 16)
+
+                    div_tradutor.innerHTML = `<h3>Resultados:</h3>
+                                            <p>Binário:
+                                            ${numero.toString(2)}
+                                            </p>
+                                            <p>Octal:
+                                            ${numero.toString(8)}
+                                            </p>
+                                            <p>Decimal:
+                                            ${numero.toString(10)}
+                                            </p>`
+                    }
+                    else{
+                        div_tradutor.innerHTML = 'A base hexadecimal só aceita digito e entre 0 e 9, e entre A e F.<br>Por favor, digite um número válido.'
+                    }
                 }
             }
         }
